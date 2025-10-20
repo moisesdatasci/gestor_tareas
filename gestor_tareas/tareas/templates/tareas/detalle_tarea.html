@@ -1,0 +1,23 @@
+{% extends 'tareas/base.html' %}
+
+{% block title %}Detalle de Tarea{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h3>{{ tarea.titulo }}</h3>
+            </div>
+            <div class="card-body">
+                <h5>Descripción:</h5>
+                <p>{{ tarea.descripcion }}</p>
+            </div>
+            <div class="card-footer">
+                <a href="{% url 'lista_tareas' %}" class="btn btn-secondary">← Volver</a>
+                <a href="{% url 'eliminar_tarea' tarea.id %}" class="btn btn-danger" onclick="return confirm('¿Estás seguro de eliminar esta tarea?')">Eliminar</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
